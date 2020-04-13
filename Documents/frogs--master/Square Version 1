@@ -1,0 +1,121 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+   
+public class square 
+{       
+    private int x , y;
+    private int height;
+    private String type;
+    private JButton one;
+    private JFrame frame;
+
+    public square(int height,int x, int y, JFrame frame, String type)
+    {    
+        this.x = x;
+        this.y = y;
+        this.height = height;
+        this.type = type;
+        this.frame  = frame;
+      
+        one =new JButton();
+       // one.addActionListener(this);
+
+        if (type.equals("leaf"))
+        {
+            one.setIcon (new ImageIcon ("LilyPad.png"));
+            
+        }
+     
+        else if (type.equals("water"))
+        {
+            one.setIcon (new ImageIcon ("water.png"));
+           
+        }
+
+        else if (type.equals("GreenFrog"))
+        {
+            one.setIcon (new ImageIcon ("GreenFrog.png"));
+        }
+
+        else if (type.equals("SelectedGreenFrog"))
+        {
+            one.setIcon (new ImageIcon ("GreenFrog2.png"));
+        }
+
+        else if (type.equals("RedFrog"))
+        {
+            one.setIcon (new ImageIcon ("RedFrog.png"));
+        }
+
+        else if (type.equals("SelectedRedFrog"))
+        {
+            one.setIcon (new ImageIcon ("RedFrog2.png"));
+        }
+        
+
+
+        one.setBounds(x,y ,height,height);  
+        frame.add(one);    
+        one.setVisible(true);   
+       
+    }  
+
+    public void setIcon(ImageIcon image)
+    {   
+        one.setIcon(image);
+        one.setVisible(true); 
+    }
+    
+    public int getx()
+    {
+        return this.x;  
+    }
+
+    public int gety()
+    {
+        return this.y;  
+    }
+
+    public int getheight()
+    {
+        return this.height;  
+    }
+        
+    
+    public String gettype()
+    {
+        return this.type;  
+    }
+
+    
+       
+
+    
+   /* public void actionPerformed( ActionEvent e) 
+    {
+        String george  = e.getActionCommand();
+        System.out.println("hello");
+
+        JOptionPane.MessageDialog(frame,this.type);
+        
+    }*
+      
+   
+
+}
+
+
+/*if (george.equals("GreenFrog"))
+{
+    JOptionPane.showMessageDialog( frame, "Button 1 clicked ");
+    System.out.println(george);
+    
+
+}
+else
+{()
+    JOptionPane.showMessageDialog( frame,"unknown event");
+
+}*/

@@ -1,0 +1,142 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+   
+public class square 
+{       
+    private int x, y;
+    private int height;
+    private String type;
+    private JButton one;
+    private JFrame frame;
+
+    public square(int height,int x, int y, JFrame frame, String type)
+    {    
+        this.x = x;
+        this.y = y;
+        this.height = height;
+        this.type = type;
+        this.frame  = frame;
+      
+        one =new JButton();
+        SimpleListener ourListener = new SimpleListener();
+        one.addActionListener(ourListener);
+      
+
+        if (type.equals("leaf"))
+        {
+            one.setIcon (new ImageIcon ("LilyPad.png"));
+            
+        }
+     
+        else if (type.equals("water"))
+        {
+            one.setIcon (new ImageIcon ("water.png"));
+           
+        }
+
+        else if (type.equals("GreenFrog"))
+        {
+            one.setIcon (new ImageIcon ("GreenFrog.png"));
+        }
+
+        else if (type.equals("SelectedGreenFrog"))
+        {
+            one.setIcon (new ImageIcon ("GreenFrog2.png"));
+        }
+
+        else if (type.equals("RedFrog"))
+        {
+            one.setIcon (new ImageIcon ("RedFrog.png"));
+        }
+
+        else if (type.equals("SelectedRedFrog"))
+        {
+            one.setIcon (new ImageIcon ("RedFrog2.png"));
+        }
+        
+
+
+        one.setBounds(x*150,y*150 ,height,height);  
+        frame.add(one);    
+        one.setVisible(true);   
+       
+    }  
+
+    private class SimpleListener implements ActionListener
+    {
+       
+   
+        public void actionPerformed(ActionEvent e)
+        
+        {
+            String Name = e.getActionCommand();
+                    
+        
+            if (Name.equals("one"))
+            {
+                
+                
+                //JOptionPane.showMessageDialog(frame, "Button one Be clicked");
+                JOptionPane.showMessageDialog(null,"clicked");
+
+            }
+            else
+            {
+              
+
+                System.out.println(gettype());
+                
+                System.out.println(getX());
+                System.out.println(gety());
+
+
+                //frame.setclickedButton = this; 
+                // this is the button that has just been clicked 
+
+            }
+        }
+
+    }
+
+    public void setIcon(ImageIcon image)
+    {   
+        one.setIcon(image);
+        one.setVisible(true); 
+    }
+
+    
+    public ImageIcon getIcon()
+    { 
+        return (ImageIcon)one.getIcon();
+    }
+    
+    public int getX()
+    {
+        return this.x;  
+    }
+
+    public int gety()
+    {
+        return this.y;  
+    }
+
+    public int getheight()
+    {
+        return this.height;  
+    }
+        
+    
+    public String gettype()
+    {
+        return this.type;  
+    }
+
+    public void setType(String type)
+   {
+        this.type = type;
+   }
+
+}
+    

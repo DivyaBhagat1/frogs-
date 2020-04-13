@@ -1,0 +1,110 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class board 
+{
+    private square[][] Squares;
+
+    public board()
+    {   
+        Squares = new square[5][5];
+        
+        JFrame frame; 
+        JPanel panel;    
+
+        frame = new JFrame();                                       // variables initialised
+        frame.setTitle("Hoppers");
+    
+        frame.setSize(775,775);    
+        frame.setLayout(null);    
+         
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
+       
+
+        panel = new JPanel();                                      // creating panel at borrom
+        panel.setLayout(new BorderLayout());                       // set as BorderLayout
+
+        
+
+        
+
+        for (int y = 0; y< 5; y++)
+        {
+            for (int x =0; x < 5; x++)
+            {   
+                square s = null;
+                
+                if (y%2 == 0 && x%2 == 0)
+                {
+                    s = new square(150,x,y,frame,"leaf");  
+                    
+
+                }
+            
+
+                else if (y%2 == 1 && x%2 == 1)
+                {
+                    s = new square(150,x,y,frame,"leaf");
+                    
+
+                
+                }
+                
+                else 
+                {
+                    s = new square(150,x,y,frame,"water");
+                      
+
+                }
+                
+                Squares[y][x] = s;//array of square you can store the square click a button and get its x and y all stored by refrence not a copy
+       
+            }
+        }
+        
+    
+        
+    
+
+        Squares[1][1].setType("greenFrog");
+        Squares[1][1].setIcon (new ImageIcon ("GreenFrog.png"));
+        Squares[1][3].setType("greenFrog");
+        Squares[1][3].setIcon (new ImageIcon ("GreenFrog.png"));
+        Squares[2][2].setType("greenFrog");
+        Squares[2][2].setIcon (new ImageIcon ("GreenFrog.png"));
+        Squares[4][0].setType("greenFrog");
+        Squares[4][0].setIcon (new ImageIcon ("GreenFrog.png"));
+        Squares[4][4].setType("greenFrog");
+        Squares[4][4].setIcon (new ImageIcon ("GreenFrog.png"));
+        Squares[4][2].setType("redFrog");
+        Squares[4][2].setIcon (new ImageIcon ("RedFrog.png"));
+
+
+    
+
+        frame.setVisible(true); 
+
+    }
+
+    
+
+
+
+
+    public static void main (final String args[]) // The entry main() method
+    {
+        new board(); // Invoke the constructor (to setup the GUI) by allocating an instance
+    }
+
+}
+
+
+    
+
+
+
+
+
+
+
